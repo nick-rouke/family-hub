@@ -1,6 +1,6 @@
 """The hub's own Gmail account: LinkedIn job alerts in over IMAP, tailored drafts out over SMTP.
 
-Nick's Gmail forwards LinkedIn alerts here with a filter, so this inbox only
+The user's own Gmail forwards LinkedIn alerts here with a filter, so this inbox only
 ever holds what that filter sends. The login is the hub account's address and
 a Google app password, kept in ~/.config/home-manager/gmail.toml (outside the
 repo, readable only by its owner). No AI reads this mailbox: this module hands

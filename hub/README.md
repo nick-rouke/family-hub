@@ -24,7 +24,7 @@ iPhones ──iMessage──▶ Family Hub's Apple Account, signed in on a Mac o
                         ├─ Claude Code + iMessage plugin   (may only run ./hm)
                         ├─ ./hm digest-loop                (7:00 digest)
                         └─ ./hm jobs loop                  (hourly: hub's Gmail → job queue;
-                                                            tailored drafts → Nick's email)
+                                                            tailored drafts → your email)
                             │  EventKit
                             ▼
                       iCloud: Household calendar  ◀── shared with you both

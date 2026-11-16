@@ -1,4 +1,4 @@
-"""Tailoring: a resume and cover letter for a job Nick said "tailor" to.
+"""Tailoring: a resume and cover letter for a job the user said "tailor" to.
 
 Same safety rule as the finder: no single Claude call gets untrusted text,
 private data and a way to act all at once.
@@ -10,8 +10,8 @@ private data and a way to act all at once.
   (untrusted), and can only answer with two Markdown drafts and a list of gaps.
 
 Code then checks the drafts against career-facts.md: a number that isn't in it
-is flagged for Nick to check, and a link or email address that isn't in it is
-removed. Nothing is ever sent to an employer: the drafts go to Nick.
+is flagged for the user to check, and a link or email address that isn't in it is
+removed. Nothing is ever sent to an employer: the drafts go to the user.
 """
 
 import re

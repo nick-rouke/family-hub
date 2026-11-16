@@ -171,7 +171,7 @@ def test_the_loop_clears_a_search_a_restart_cut_short(run, monkeypatch, capsys):
 
 def test_a_reply_during_a_slow_lookup_is_kept(run, monkeypatch):
     def slow_find(title, company, location):
-        run("pending", "accept", "1")  # Nick says "tailor 1" while this lookup runs
+        run("pending", "accept", "1")  # the user says "tailor 1" while this lookup runs
         return finder.Posting(remote="remote")
 
     monkeypatch.setattr(finder, "find", slow_find)

@@ -31,7 +31,7 @@ time = "07:00"
 
 [jobs]
 # Job matches from `hm jobs loop`, texted to one person only (never the group
-# chat): the one job hunting. Leave out to keep matches in the queue untexted.
+# chat): the person using the job tool. Leave out to keep matches in the queue untexted.
 # to = "+15551234567"
 # Text jobs that score at least this (1-10). The rest go in the weekly check.
 min_fit = 7
@@ -42,5 +42,5 @@ quiet_end = "08:00"
 weekly_day = "sunday"
 weekly_time = "09:00"
 # Where tailored resumes and cover letters are emailed (from the hub's Gmail),
-# after a "tailor 3" reply: the job hunter's own address. Needs career-facts.md.
+# after a "tailor 3" reply: that person's own address. Needs career-facts.md.
 # email = "you@example.com"
