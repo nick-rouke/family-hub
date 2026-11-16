@@ -11,7 +11,7 @@ from datetime import date, datetime, time, timedelta
 from .pending import NEW, Item
 
 MAX_WEEKLY = 15  # jobs listed in the weekly check; the rest are counted
-FAILS_BEFORE_TEXT = 3  # look-ups failing in a row before Nick hears about it
+FAILS_BEFORE_TEXT = 3  # look-ups failing in a row before the user hears about it
 
 
 def quiet(now: time, start: time, end: time) -> bool:

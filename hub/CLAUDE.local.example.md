@@ -11,6 +11,8 @@ it automatically next to `CLAUDE.md`.
 | Nick | +15551234567 |
 | (wife's name) | +15557654321 |
 
+Job-match recipient (the only one who may reply "tailor" or "pass"): Nick
+
 ## Family
 
 - Kids: (names and ages, schools, teams) so "Emma's practice" makes sense

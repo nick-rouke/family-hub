@@ -640,7 +640,7 @@ def send_email(login: mailbox.Login, to: str, subject: str, body: str, attachmen
 
 
 def _to_tailor(queue: pq.Queue) -> list[pq.Item]:
-    """Jobs Nick said "tailor" to that haven't been tailored, or given up on."""
+    """Jobs the user said "tailor" to that haven't been tailored, or given up on."""
     return [
         i for i in queue.items
         if i.kind == "job" and i.status == pq.ACCEPTED and "tailored" not in i.data
@@ -691,7 +691,7 @@ def _tailor_one(config: Config, item: pq.Item) -> None:
 
 
 def cmd_jobs_tailor(args) -> None:
-    """Email a tailored resume and cover letter for each job Nick accepted, then text him."""
+    """Email a tailored resume and cover letter for each accepted job, then text the user."""
     config = _config()
     queue = _queue()
     if args.numbers:

@@ -49,7 +49,7 @@ flowchart LR
         jobsloop["./hm jobs loop<br/>hourly job alerts,<br/>tailored drafts"]
     end
     gmail["Hub's Gmail<br/>(LinkedIn alerts only)"] -- IMAP --> jobsloop
-    jobsloop -- "SMTP: drafts to Nick only" --> gmail
+    jobsloop -- "SMTP: drafts to one address" --> gmail
     hm -- EventKit --> icloud["iCloud<br/>Household calendar<br/>Grocery · To-Do · Bills"]
     loop -- EventKit --> icloud
     loop -- AppleScript --> msgs
@@ -203,7 +203,7 @@ kept and links are rebuilt without it. The queue is
 `~/.config/home-manager/pending.json`; a job is never proposed twice.
 
 `jobs fetch` reads the hub's own Gmail account, which only receives what a
-filter on Nick's Gmail forwards: alerts from `jobalerts-noreply@linkedin.com`.
+filter on the user's own Gmail forwards: alerts from `jobalerts-noreply@linkedin.com`.
 It logs in with a Google app password from `~/.config/home-manager/gmail.toml`
 (copy `gmail.example.toml`; it must be `chmod 600`), searches for unread mail
 from that sender, and passes it to the same parser as `jobs scan`. Emails are
@@ -220,12 +220,12 @@ If three look-ups in a row fail, it texts once to say so: usually `claude`
 has signed out on the hub, which nothing else would show for days.
 The hub's Claude session can read its chat history, so these texts carry only
 short checked fields (the alert's title line, the checked link, pay, remote and
-the score's one-line reason), never the description from the web page. Nick
-replies "tailor 14" or "pass 14 too junior", and the hub runs
+the score's one-line reason), never the description from the web page. The
+recipient replies "tailor 14" or "pass 14 too junior", and the hub runs
 `hm pending accept` or `reject --why`; it can't run `hm jobs` or list the
 queue.
 
-`jobs tailor` writes a resume and cover letter for each job Nick said "tailor"
+`jobs tailor` writes a resume and cover letter for each job the user said "tailor"
 to; `jobs loop` checks for them every 5 minutes. It runs `claude -p` twice
 (about 2 minutes), the same locked-down way as `find`:
 
@@ -238,11 +238,11 @@ to; `jobs loop` checks for them every 5 minutes. It runs `claude -p` twice
    facts. It answers with two Markdown drafts and the gaps it couldn't cover.
 
 The code then checks the drafts against career-facts: any link or email
-address not in it is removed, and any number not in it is listed for Nick to
-check. It turns both into Word files and emails them from the hub's Gmail
+address not in it is removed, and any number not in it is listed for the user
+to check. It turns both into Word files and emails them from the hub's Gmail
 (SMTP, same app password) to the one address in `[jobs] email`, with the gaps
-and checks in the email, then texts Nick that they've arrived. A failed job is
-retried on the next two checks, then Nick gets a text saying it failed. Nothing
+and checks in the email, then texts the user that they've arrived. A failed job is
+retried on the next two checks, then the user gets a text saying it failed. Nothing
 is ever sent to an employer.
 
 `jobs search` goes looking instead of waiting for alerts. It reads
